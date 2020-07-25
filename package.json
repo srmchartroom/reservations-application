@@ -1,0 +1,19 @@
+{
+  "name": "hot-restaturant-reservations",
+  "version": "1.0.0",
+  "description": "Reservations application using front-end and back-end, custom API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srmchartroom/hot-restaturant-reservations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srmchartroom/hot-restaturant-reservations/issues"
+  },
+  "homepage": "https://github.com/srmchartroom/hot-restaturant-reservations#readme"
+}
