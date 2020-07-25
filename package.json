@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/srmchartroom/hot-restaturant-reservations/issues"
   },
-  "homepage": "https://github.com/srmchartroom/hot-restaturant-reservations#readme"
+  "homepage": "https://github.com/srmchartroom/hot-restaturant-reservations#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
 }
