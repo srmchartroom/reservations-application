@@ -16,22 +16,34 @@
   <body>
     <container>
       <div class="jumbotron">
-        <h1 class="display-4 text-center">
-          <strong><i class="fas fa-fire mr-2"></i>&nbsp;Hot Restaurant!</strong>
-        </h1>
-        <hr class="my-4" />
-        <h3 class="text-center">
-          Current Reservations and Waiting List
-        </h3>
-        <p>
-            <a class="btn btn-danger btn-lg my-3 text-center" id="makeRes" href="makereservations.html" role="button"
+        <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
+        <hr />
+        <h2 class="text-center">Current Reservations and Waiting List</h2>
+        <br />
+
+        <div class="text-center">
+          <a href="/makeReservations.html"
+            ><button type="button" class="btn btn-lg btn-danger">
+              <span class="glyphicon glyphicon-credit-card"></span> Make Reservation
+            </button></a
           >
-          <i class="fas fa-utensils mr-2"></i>&nbsp;Make Reservation
-        </a>
-        <a class="btn btn-outline-dark btn-lg my-3 text-center" id="home" href="home.html" role="button" >
-            <i class="fas fa-home mr-2"><i>&nbsp;</a>
-        </p>
-    </div>
+          <a href="/home.html"
+            ><button type="button" class="btn btn-lg btn-primary">
+              <span class="glyphicon glyphicon-list-alt"></span> Home
+            </button></a
+          >
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <p>Control Panel</p>
+          <p>
+            <a href="#">Clear Tables</a>| <a href="/api/tables">API Table Link</a> |
+            <a href="/api/waitlist">API Wait List</a>
+          </p>
+        </div>
+      </footer>
     </container>
   </body>
 </html>
