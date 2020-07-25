@@ -13,14 +13,19 @@
     <div class="container">
         <div class="col-md">
             <div class="jumbotron">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                    attention to
-                    featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.
-                </p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
+                <hr>
+                <h2 class="text-center">We only have 5 tables! Book your seat now!</h2>
+                <br>
+
+                <div class="text-center">
+                    <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span
+                                class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+                    <a class="btn btn-outline-dark btn-lg my-3 text-center" id="home" href="home.html"
+                        role="button">Home
+                        <i class="fas fa-home mr-2"><i>&nbsp;</a>
+                </div>
+
             </div>
             <form>
                 <div class="form-group">
@@ -29,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input class="form-control" id="name">
+                    <input class="form-control" id="phone">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -39,11 +44,47 @@
                     <label>Unique ID</label>
                     <input class="form-control" id="uniqueID">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
             </form>
         </div>
     </div>
-
+    <footer class="footer">
+        <div class="container">
+            <p>Control Panel</p>
+            <p>
+                <a href="#">Clear Tables </a>| <a href="/api/tables">API Table Link</a> |
+                <a href="/api/waitlist">API Wait List</a>
+            </p>
+        </div>
+    </footer>
 </body>
+
+<script typer="text/javascript">
+    // Capture form input on click 
+    $("#submitBtn").on("click", function () {
+        event.preventDefault();
+        // create json obj 
+        const newReservation = {
+            name: $("#name").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueID: $("#uniqueID").val().trim()
+        };
+        // Question: what does this code do?
+        $.post("/api/reservations", newReservation)
+            .then(function (data) {
+                console.log("");
+            })
+        const newReservation = req.body;
+    });
+
+
+    // add to json obj 
+
+    // ajax call from obj 
+
+
+
+
+</script>
 
 </html>
