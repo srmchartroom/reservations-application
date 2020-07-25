@@ -40,16 +40,57 @@
           >
         </div>
       </div>
-
-      <footer class="footer">
-        <div class="container">
-          <p>Control Panel</p>
-          <p>
-            <a href="#">Clear Tables</a>| <a href="/api/tables">API Table Link</a> |
-            <a href="/api/waitlist">API Wait List</a>
-          </p>
-        </div>
-      </footer>
     </container>
+    <div class="container mb-5">
+      <div class="row display-flex justify-content-center mb-5">
+        <div class="col-12 border-gray">
+          <div class="card">
+            <div class="card-header">
+              Tables
+            </div>
+            <div class="card-body">
+              <div class="card reservation my-2 pt-3">
+                <p>
+                  <span class="ml-2 mr-5 px-2 py-2 bg-primary text-white"><strong>{{ index }}</strong></span
+                  >&nbsp;<span class="lead mx-2"><strong>{{ customerName }}</strong>&nbsp;&nbsp;</span
+                  ><a href="#" class="btn-sm btn-danger float-right mx-3">X</a>
+                </p>
+              </div>
+              <!-- End of .reservation -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mb-5">
+      <div class="row display-flex justify-content-center mb-5">
+        <div class="col-12 border-gray">
+          <div class="card">
+            <div class="card-header">
+              Wait List
+            </div>
+            <div class="card-body">
+              <div class="card reservation my-2 pt-3">
+                <p>
+                  <span class="ml-2 mr-5 px-2 py-2 bg-primary text-white"><strong>{{ index }}</strong></span
+                  >&nbsp;<span class="lead mx-2"><strong>{{ customerName }}</strong>&nbsp;&nbsp;</span
+                  ><a href="#" class="btn-sm btn-danger float-right mx-3">X</a>
+                </p>
+              </div>
+              <!-- End of .reservation -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>Control Panel</p>
+        <p>
+          <a href="#">Clear Tables</a> | <a href="/api/tables">API Table Link</a> |
+          <a href="/api/waitlist">API Wait List</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
