@@ -12,15 +12,20 @@ var PORT = 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "view.html"));
+});
+
 // Reservations (DATA)
 // =============================================================
 
 const reservations = [
   {
-    name: "Groovy Colin",
-    phone: "444-444-4444",
-    email: "groovyorange@gmail.com",
-    uniqueID: "24",
+    customerName: "Groovy Colin",
+    phoneNumber: "444-444-4444",
+    customerEmail: "groovyorange@gmail.com",
+    customerID: "24",
   },
   {
     name: "Groovy Luke",
@@ -30,7 +35,43 @@ const reservations = [
   },
 ];
 
-// Reservations.js file ... //
+// Routes
+// =============================================================
+
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Basic route that sends the to the reserve.html page
+app.get("/reserve", function (req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+// Basic route that sends the to the reserve.html page
+app.get("/tables", function (req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Displays all reservations
+app.get("/api/tables", function (req, res) {
+  return res.json(reservations);
+});
+
+// Displays a single reservation, or returns false
+app.get("/api/tables/:reservation", function (req, res) {
+  let chosen = req.params.reservation;
+
+  console.log(chosen);
+
+  for (var i = 0; i < reservations.length; i++) {
+    if (chosen === reservations[i].routeName) {
+      return res.json(reservations[i]);
+    }
+  }
+
+  return res.json(false);
+});
 
 // Create New Reseration - takes in JSON input
 app.post("/api/tables", function (req, res) {
@@ -46,26 +87,8 @@ app.post("/api/tables", function (req, res) {
 
   reservations.push(newReservation);
 
-  //
-  if (reservations.length < 5) {
-    res.json(newReservation);
-  } else {
-    return;
-  }
+  res.json(newReservation);
 });
-
-// Displays all reservations
-app.get("/api/tables", function (req, res) {
-  return res.json(reservations);
-});
-
-// app.get("/api/waiting"), function(req, res) {
-// return res.json(waiting);
-//   });
-
-// app.get("/api/tables"), function(req, res) {
-// return res.json(tables);
-// });
 
 // Starts the server to begin listening
 // =============================================================
