@@ -12,11 +12,6 @@ var PORT = 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Basic route that sends the user first to the AJAX Page
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
-});
-
 // Reservations (DATA)
 // =============================================================
 
