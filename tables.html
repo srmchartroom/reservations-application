@@ -48,8 +48,8 @@
             <div class="card-header">
               Tables
             </div>
-            <div class="card-body">
-              <div class="card reservation my-2 pt-3">
+            <div class="card-body res-tables">
+              <div class="card my-2 pt-3">
                 <p>
                   <span class="ml-2 mr-5 px-2 py-2 bg-primary text-white"><strong>{{ index }}</strong></span
                   >&nbsp;<span class="lead mx-2"><strong>{{ customerName }}</strong>&nbsp;&nbsp;</span
@@ -69,8 +69,8 @@
             <div class="card-header">
               Wait List
             </div>
-            <div class="card-body">
-              <div class="card reservation my-2 pt-3">
+            <div class="card-body res-wait">
+              <div class="card my-2 pt-3">
                 <p>
                   <span class="ml-2 mr-5 px-2 py-2 bg-primary text-white"><strong>{{ index }}</strong></span
                   >&nbsp;<span class="lead mx-2"><strong>{{ customerName }}</strong>&nbsp;&nbsp;</span
@@ -93,4 +93,26 @@
       </div>
     </footer>
   </body>
+  <script type="text/javascript">
+    $(window).on("load", function () {
+      // Here we grab the form elements
+
+      // since local host and also heroku deployed link are different
+      let currentURL = window.location.origin;
+      let finalURL = currentURL + "/api/tables";
+
+      $.ajax({
+        url: finalURL,
+        method: "GET",
+      }).then(function (resData) {
+        // Logic code to drop in table elements for waiting list and tables here.
+        // Loop through resData (the reservations array)...
+        // if index is < 5, then drop in tables section
+        // if great than 5, then drop in waiting section
+        // if delete button is click, pop based on id or name and rerun function
+        // build the cards using the prebuilt cards above.
+        // drop new cards in the res-waiting or res-tables, respectively
+      });
+    });
+  </script>
 </html>
