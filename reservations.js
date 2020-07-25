@@ -22,9 +22,6 @@ const reservations = [
     email: "groovyorange@gmail.com",
     uniqueID: "24",
   },
-];
-
-const waiting = [
   {
     name: "Groovy Luke",
     phone: "555-555-5555",
@@ -36,7 +33,7 @@ const waiting = [
 // Reservations.js file ... //
 
 // Create New Reseration - takes in JSON input
-app.post("/api/reservations", function (req, res) {
+app.post("/api/tables", function (req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   var newReservation = req.body;
@@ -49,12 +46,17 @@ app.post("/api/reservations", function (req, res) {
 
   reservations.push(newReservation);
 
-  res.json(newReservation);
+  //
+  if (reservations.length < 5) {
+    res.json(newReservation);
+  } else {
+    return;
+  }
 });
 
 // Displays all reservations
-app.get("/api/reservations", function (req, res) {
-  return res.json(reservations, tables);
+app.get("/api/tables", function (req, res) {
+  return res.json(reservations);
 });
 
 // app.get("/api/waiting"), function(req, res) {

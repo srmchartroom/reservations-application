@@ -89,7 +89,7 @@
   $(".submit").on("click", function () {
     // Here we grab the form elements
 
-    var newReservation = {
+    const newReservation = {
       customerName: $("#reserve_name").val().trim(),
       phoneNumber: $("#reserve_phone").val().trim(),
       customerEmail: $("#reserve_email").val().trim(),
@@ -98,7 +98,8 @@
 
     console.log(newReservation);
 
-    var currentURL = window.location.origin;
+    // since local host and also heroku deployed link are different
+    let currentURL = window.location.origin;
 
     $.post(currentURL + "/api/tables", newReservation, function (data) {
       // If a table is available... tell user they are booked.
