@@ -23,10 +23,10 @@ const reservations = [
     customerID: "24",
   },
   {
-    name: "Groovy Luke",
-    phone: "555-555-5555",
-    email: "groovygreen@gmail.com",
-    uniqueID: "32",
+    customerName: "Groovy Luke",
+    phoneNumber: "555-555-5555",
+    customerEmail: "groovygreen@gmail.com",
+    customerID: "32",
   },
 ];
 
@@ -39,12 +39,12 @@ app.get("/", function (req, res) {
 });
 
 // Basic route that sends the to the reserve.html page
-app.get("/reserve", function (req, res) {
+app.get("/reserve.html", function (req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Basic route that sends the to the reserve.html page
-app.get("/tables", function (req, res) {
+app.get("/tables.html", function (req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
@@ -55,7 +55,7 @@ app.get("/api/tables", function (req, res) {
 
 // Displays a single reservation, or returns false
 app.get("/api/tables/:reservation", function (req, res) {
-  let chosen = req.params.reservation;
+  var chosen = req.params.reservation;
 
   console.log(chosen);
 
@@ -76,7 +76,7 @@ app.post("/api/tables", function (req, res) {
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+  // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newReservation);
 
